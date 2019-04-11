@@ -29,7 +29,13 @@ Animal.get_animal_data = function(){
   $.get('../data/page-1.json', 'json').then( data => {
     data.forEach(horn => new Animal(horn));
     all_animals.forEach(horn => horn.render());
-  })
+})
 }
 
-Animal.get_animal_data();
+$('select').on('change', function() {
+    select_value = $(this).val();
+    $('select').append('<option id="horny_animals"></option>');
+    $('#horny_animals').text(this.keyword);
+    $('#horny_animals').attr('id','')
+    
+});
